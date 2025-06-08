@@ -3,11 +3,17 @@ CFLAGS = -Wall -Wextra -O2
 
 SRC = src/main.c 
 OBJ = $(SRC:.c=.o)
+ENTRY = server
 
 all: server
 
+again: clean server run
+
 server: $(OBJ)
-		$(CC) $(CFLAGS) -o server $(OBJ)
+	$(CC) $(CFLAGS) -o $(ENTRY) $(OBJ)
+
+run: $(ENTRY)
+	./$(ENTRY)
 
 clean:
-		rm -f server $(OBJ)
+	rm -f $(ENTRY) $(OBJ)
