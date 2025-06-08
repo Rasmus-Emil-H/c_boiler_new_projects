@@ -5,8 +5,6 @@ SRC = src/main.c
 OBJ = $(SRC:.c=.o)
 ENTRY = server
 
-all: server
-
 again: clean server run
 
 server: $(OBJ)
